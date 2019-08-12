@@ -329,7 +329,7 @@ class Two_Factor_FIDO_U2F_Admin {
 			}
 		}
 
-		$key->name = $_POST['name'];
+		$key->name = sanitize_text_field($_POST['name']);
 
 		$updated = Two_Factor_FIDO_U2F::update_security_key( $user_id, $key );
 		if ( ! $updated ) {
